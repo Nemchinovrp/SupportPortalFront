@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs';
-import { AuthenticationService } from '../service/authentication.service';
-import { NotificationService } from '../service/notification.service';
-import { User } from '../model/user';
-import { NotificationType } from '../enum/notification-type.enum';
-import { HeaderType } from '../enum/header-type.enum';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs';
+import {AuthenticationService} from '../service/authentication.service';
+import {NotificationService} from '../service/notification.service';
+import {User} from '../model/user';
+import {NotificationType} from '../enum/notification-type.enum';
+import {HeaderType} from '../enum/header-type.enum';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   constructor(private router: Router, private authenticationService: AuthenticationService,
-              private notificationService: NotificationService) {}
+              private notificationService: NotificationService) {
+  }
 
   ngOnInit(): void {
     if (this.authenticationService.isUserLoggedIn()) {
